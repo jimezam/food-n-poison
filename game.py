@@ -1,6 +1,6 @@
 from typing import List, Dict
 import pygame
-from src.handle_events import handle_events
+from src.events import handle_events
 from src.elements import *
 
 ####################################################
