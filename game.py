@@ -1,16 +1,10 @@
 from typing import List, Dict
 import pygame
+from config import *
 from src.events import handle_events
 from src.elements import *
 
 ####################################################
-
-width: int = 800
-height: int = 600
-elements: List[Dict] = []
-
-####################################################
-
 
 def main():
     pygame.init()
@@ -21,9 +15,11 @@ def main():
 
     ####################################################
 
-    elements.append(element_create(0, 0, width, height, Element_type.FOOD, 70))
-    elements.append(element_create(0, 0, width, height, Element_type.FOOD, 70))
-    elements.append(element_create(0, 0, width, height, Element_type.POISON, 70))
+    elements.append(element_create(0, 0, width, height, Element_type.FOOD, element_size, elements_options))
+    elements.append(element_create(0, 0, width, height, Element_type.FOOD, element_size, elements_options))
+    elements.append(element_create(0, 0, width, height, Element_type.POISON, element_size, elements_options))
+    elements.append(element_create(0, 0, width, height, Element_type.POISON, element_size, elements_options))
+    elements.append(element_create(0, 0, width, height, Element_type.POISON, element_size, elements_options))
 
     while True:
         handle_events()
