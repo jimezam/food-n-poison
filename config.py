@@ -1,11 +1,17 @@
 from typing import List, Dict
 import pygame
 
+background_color: List = (255, 255, 255)
+
 width: int = 800
 height: int = 600
 
+time: int = 0
+
 element_size: int = 60
 elements: List[Dict] = []
+elements_speed_range: Dict = (50, 300)
+elements_step_range: Dict = (1, 5)
 
 elements_options: Dict = {
     "bomb": [

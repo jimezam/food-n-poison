@@ -22,8 +22,11 @@ def main():
     elements.append(element_create(0, 0, width, height, Element_type.POISON, element_size, elements_options))
 
     while True:
+        time = pygame.time.get_ticks() 
+        surface.fill(background_color)
         handle_events()
         handle_key(pygame.key.get_pressed())
+        elements_move(elements, time)
         elements_draw(surface, elements)
         pygame.display.update()
 
