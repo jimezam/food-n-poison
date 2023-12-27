@@ -28,6 +28,7 @@ def main():
         handle_key(pygame.key.get_pressed())
         elements_move(elements, time)
         elements_draw(surface, elements)
+        elements_detect_fallen(elements)
         pygame.display.update()
 
 ####################################################

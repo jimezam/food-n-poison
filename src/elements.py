@@ -16,6 +16,7 @@ def element_create(x: int, y: int,
     options: List[pygame.Surface] = elements_options['food'] if type == Element_type.FOOD else elements_options['poison']
 
     return {
+        "type": type,
         "rect": pygame.Rect(random.randint(x, x+width-size), 0, size, size),
         "color": color,
         "image": options[random.randint(0, len(options)-1)],
@@ -36,3 +37,14 @@ def elements_move(elements: List[Dict], time: int) -> None:
         if time >= element['next_move']:
             element['rect'] = element['rect'].move(0, element['step_size'])
             element['next_move'] = time + element['speed']
+
+def elements_detect_fallen(elements: List[Dict]) -> None:
+    for element in elements:
+        if element['rect'].y > height:      # Has fallen
+            fallen: Dict = element
+            elements.remove(fallen)
+
+            if fallen['type'] == Element_type.FOOD:
+                score['food_fallen'] += 1
+            elif fallen['type'] == Element_type.POISON:
+                score['poison_fallen'] += 1
