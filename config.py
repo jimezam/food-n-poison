@@ -4,7 +4,7 @@ import pygame
 width: int = 800
 height: int = 600
 
-element_size: int = 70
+element_size: int = 60
 elements: List[Dict] = []
 
 elements_options: Dict = {

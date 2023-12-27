@@ -1,7 +1,7 @@
 from typing import List, Dict
 import pygame
 from config import *
-from src.events import handle_events
+from src.events import handle_events, handle_key
 from src.elements import *
 
 ####################################################
@@ -23,6 +23,7 @@ def main():
 
     while True:
         handle_events()
+        handle_key(pygame.key.get_pressed())
         elements_draw(surface, elements)
         pygame.display.update()
 
