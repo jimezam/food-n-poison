@@ -1,7 +1,10 @@
 from typing import List, Dict
 import pygame
+from enum import Enum
 
 background_color: List = (255, 255, 255)
+
+score_color: pygame.color.Color = pygame.color.Color(128, 150, 120)
 
 width: int = 800
 height: int = 600
@@ -19,6 +22,9 @@ element_size: int = 60
 elements: List[Dict] = []
 elements_speed_range: Dict = (50, 200)
 elements_step_range: Dict = (1, 5)
+
+Element_type: Enum = Enum('Element_type', ['FOOD', 'POISON'])
+Element_status: Enum = Enum('Element_status', ['EATEN', 'FALLEN'])
 
 elements_options: Dict = {
     "bomb": [

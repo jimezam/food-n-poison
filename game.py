@@ -1,10 +1,15 @@
 from typing import List, Dict
 import pygame
 from config import *
-from src.events import handle_events, handle_key
+from src.events import handle_events
 from src.elements import *
+from src.score import *
 
 ####################################################
+
+# fonts = pygame.font.get_fonts()
+# for f in fonts:
+#    print(f)
 
 def main():
     pygame.init()
@@ -25,10 +30,10 @@ def main():
         time = pygame.time.get_ticks() 
         surface.fill(background_color)
         handle_events()
-        handle_key(pygame.key.get_pressed())
         elements_move(elements, time)
         elements_draw(surface, elements)
         elements_detect_fallen(elements)
+        score_display(surface, score)
         pygame.display.update()
 
 ####################################################

@@ -3,9 +3,7 @@ from enum import Enum
 import random
 import pygame
 from config import *
-
-Element_type = Enum('Element_type', ['FOOD', 'POISON'])
-
+from src.score import score_add_point
 
 def element_create(x: int, y: int,
                    width: int, height: int,
@@ -43,8 +41,4 @@ def elements_detect_fallen(elements: List[Dict]) -> None:
         if element['rect'].y > height:      # Has fallen
             fallen: Dict = element
             elements.remove(fallen)
-
-            if fallen['type'] == Element_type.FOOD:
-                score['food_fallen'] += 1
-            elif fallen['type'] == Element_type.POISON:
-                score['poison_fallen'] += 1
+            score_add_point(fallen['type'], Element_status.FALLEN, score)

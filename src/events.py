@@ -1,6 +1,8 @@
 import pygame
 
 def handle_events():
+    handle_key(pygame.key.get_pressed())
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
