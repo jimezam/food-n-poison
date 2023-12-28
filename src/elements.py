@@ -5,7 +5,7 @@ import pygame
 from config import *
 from src.score import score_add_point
 
-def element_create(x: int, y: int,
+def element_create(x: int, 
                    width: int, height: int,
                    type: Element_type, size: int,
                    elements_options: Dict) -> None:
@@ -42,3 +42,10 @@ def elements_detect_fallen(elements: List[Dict]) -> None:
             fallen: Dict = element
             elements.remove(fallen)
             score_add_point(fallen['type'], Element_status.FALLEN, score)
+
+def elements_keep_amount(elements: List[Dict]) -> None:
+    if len(elements) <= elements_max_count:
+        probability: int = random.randint(0, 100)
+        if probability >= elements_probability_add:
+            type: Element_type =  Element_type.FOOD if random.randint(0, 100) <= 60 else Element_type.POISON
+            elements.append(element_create(0, width, height, type, element_size, elements_options))

@@ -20,8 +20,10 @@ score: Dict = {
 
 element_size: int = 60
 elements: List[Dict] = []
-elements_speed_range: Dict = (50, 200)
+elements_speed_range: Dict = (20, 150)
 elements_step_range: Dict = (1, 5)
+elements_max_count: int = 5
+elements_probability_add: int = 60
 
 Element_type: Enum = Enum('Element_type', ['FOOD', 'POISON'])
 Element_status: Enum = Enum('Element_status', ['EATEN', 'FALLEN'])

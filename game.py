@@ -20,19 +20,23 @@ def main():
 
     ####################################################
 
-    elements.append(element_create(0, 0, width, height, Element_type.FOOD, element_size, elements_options))
-    elements.append(element_create(0, 0, width, height, Element_type.FOOD, element_size, elements_options))
-    elements.append(element_create(0, 0, width, height, Element_type.POISON, element_size, elements_options))
-    elements.append(element_create(0, 0, width, height, Element_type.POISON, element_size, elements_options))
-    elements.append(element_create(0, 0, width, height, Element_type.POISON, element_size, elements_options))
+    # elements.append(element_create(0, width, height, Element_type.FOOD, element_size, elements_options))
+    # elements.append(element_create(0, width, height, Element_type.FOOD, element_size, elements_options))
+    # elements.append(element_create(0, width, height, Element_type.POISON, element_size, elements_options))
+    # elements.append(element_create(0, width, height, Element_type.POISON, element_size, elements_options))
+    # elements.append(element_create(0, width, height, Element_type.POISON, element_size, elements_options))
 
     while True:
+        # clock = pygame.time.Clock()
+        # clock.tick(30) 
+
         time = pygame.time.get_ticks() 
         surface.fill(background_color)
         handle_events()
         elements_move(elements, time)
         elements_draw(surface, elements)
         elements_detect_fallen(elements)
+        elements_keep_amount(elements)
         score_display(surface, score)
         pygame.display.update()
 
