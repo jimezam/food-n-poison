@@ -33,6 +33,7 @@ def main():
 
         time = pygame.time.get_ticks() 
         surface.fill(background_color)
+        surface.blit(background, (0, 0))
         handle_events()
         elements_move(elements, time)
         elements_draw(surface, elements)
