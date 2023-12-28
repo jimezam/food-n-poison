@@ -16,6 +16,9 @@ def score_add_point(type: Element_type, status: Element_status, score: Dict):
         elif type == Element_type.POISON:
             score['poison_fallen'] += 1
     elif status == Element_status.EATEN:
-        pass        # TODO
+        if type == Element_type.FOOD:
+            score['food_eaten'] += 1
+        elif type == Element_type.POISON:
+            score['poison_eaten'] += 1
     else:
         print(f"ERROR: Element_status unknown: {status}")

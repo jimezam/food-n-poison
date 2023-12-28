@@ -1,5 +1,4 @@
 from typing import List, Dict
-from enum import Enum
 import random
 import pygame
 from config import *
@@ -39,9 +38,7 @@ def elements_move(elements: List[Dict], time: int) -> None:
 def elements_detect_fallen(elements: List[Dict]) -> None:
     for element in elements:
         if element['rect'].y > height:      # Has fallen
-            fallen: Dict = element
-            elements.remove(fallen)
-            score_add_point(fallen['type'], Element_status.FALLEN, score)
+            elements_fall(elements, element, score)
 
 def elements_keep_amount(elements: List[Dict]) -> None:
     if len(elements) <= elements_max_count:
@@ -49,3 +46,16 @@ def elements_keep_amount(elements: List[Dict]) -> None:
         if probability >= elements_probability_add:
             type: Element_type =  Element_type.FOOD if random.randint(0, 100) <= 60 else Element_type.POISON
             elements.append(element_create(0, width, height, type, element_size, elements_options))
+
+def elements_eat(elements: List[Dict], element: Dict, score: Dict) -> None:
+    elements.remove(element)
+    score_add_point(element['type'], Element_status.EATEN, score)
+    # sound
+    # TODO
+
+def elements_fall(elements: List[Dict], element: Dict, score: Dict) -> None:
+    elements.remove(element)
+    score_add_point(element['type'], Element_status.FALLEN, score)
+    # sound
+    # TODO
+    pass

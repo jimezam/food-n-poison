@@ -8,10 +8,6 @@ from src.player import *
 
 ####################################################
 
-# fonts = pygame.font.get_fonts()
-# for f in fonts:
-#    print(f)
-
 def main():
     pygame.init()
     surface: pygame.Surface = pygame.display.set_mode((width, height))
@@ -21,16 +17,7 @@ def main():
 
     ####################################################
 
-    # elements.append(element_create(0, width, height, Element_type.FOOD, element_size, elements_options))
-    # elements.append(element_create(0, width, height, Element_type.FOOD, element_size, elements_options))
-    # elements.append(element_create(0, width, height, Element_type.POISON, element_size, elements_options))
-    # elements.append(element_create(0, width, height, Element_type.POISON, element_size, elements_options))
-    # elements.append(element_create(0, width, height, Element_type.POISON, element_size, elements_options))
-
     while True:
-        # clock = pygame.time.Clock()
-        # clock.tick(30) 
-
         time = pygame.time.get_ticks() 
         surface.fill(background_color)
         surface.blit(background, (0, 0))
@@ -40,6 +27,7 @@ def main():
         elements_detect_fallen(elements)
         elements_keep_amount(elements)
         player_draw(surface, player)
+        player_check_collisions(elements, player, score)
         score_display(surface, score)
         pygame.display.update()
 

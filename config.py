@@ -21,7 +21,9 @@ score: Dict = {
 background: pygame.Surface = pygame.transform.scale(pygame.image.load("resources/images/background.png"), (width, height))
 
 player: pygame.Surface = pygame.image.load("resources/images/mouth.png")
-player_size: int = 80
+player_rect: pygame.Rect = pygame.Rect(0, 0, 80, 80)
+# player_width: int = 80
+# player_height: int = 80
 
 element_size: int = 70
 elements: List[Dict] = []
