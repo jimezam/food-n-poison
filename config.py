@@ -18,6 +18,9 @@ score: Dict = {
     "poison_fallen": 0
 }
 
+player: pygame.Surface = pygame.image.load("resources/images/mouth.png")
+player_size: int = 80
+
 element_size: int = 60
 elements: List[Dict] = []
 elements_speed_range: Dict = (20, 150)

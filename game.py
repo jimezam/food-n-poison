@@ -4,6 +4,7 @@ from config import *
 from src.events import handle_events
 from src.elements import *
 from src.score import *
+from src.player import *
 
 ####################################################
 
@@ -37,6 +38,7 @@ def main():
         elements_draw(surface, elements)
         elements_detect_fallen(elements)
         elements_keep_amount(elements)
+        player_draw(surface, player)
         score_display(surface, score)
         pygame.display.update()
 
